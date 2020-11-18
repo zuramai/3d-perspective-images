@@ -1,0 +1,104 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background: url(./../textures/black-paper.png),#000114;
+}
+#app {
+    display: flex;
+    flex-flow: column nowrap;
+    perspective: 350px;
+}
+.row {
+    height: 15rem;
+    display: flex;
+    flex-flow: row nowrap;
+    flex: 0;
+    transition: all 1s cubic-bezier(0.85, 0, 0.15, 1);
+    transform: rotate3d(-1,.5,0,-10deg) translateX(-0);
+}
+.row .image {
+    height: 100%;
+    box-shadow: 0 -5px 30px rgba(0,0,0,.3);
+    cursor: pointer;
+    position: relative;
+    margin-right: 1rem;
+}
+.row .image:hover .box:after {
+    opacity:1;
+}
+.row .image .box:after {
+    content: '';
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,.8), rgba(0,0,0,.1), rgba(0,0,0,.1), rgba(0,0,0,.8));
+}
+.row .image:hover img {
+    transform: scale(1.1);
+}
+.row .image .box {
+    overflow: hidden;
+    height: 100%;
+    
+}
+.row .image .box img {
+    height:15rem;
+    transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+.row:nth-child(1) {
+    z-index: 5;
+}
+.row:nth-child(2) {
+    z-index: 4;
+}
+.row:nth-child(3) {
+    z-index: 3;
+    margin-bottom: 3rem;
+}
+.row:nth-child(3) {
+    z-index: 2;
+    margin-bottom: 4rem;
+}
+.row:nth-child(4) {
+    margin-bottom: 5rem;
+    z-index: 1;
+}
+.slide-left, .slide-right {
+    position: fixed;
+    cursor: pointer;
+    height: 100vh;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-size: 5rem;
+    transition: all 1s;
+    z-index: 1000;
+    user-select: none;
+    top: 0;
+}
+.sliders .slide-left {
+    background: linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,.0));
+    padding: 2rem;
+    left: 0;
+}
+.sliders .slide-left:hover {
+    background: linear-gradient(to right, rgba(0,0,0,.9), rgba(0,0,0,.3));
+}
+.sliders .slide-right {
+    background: linear-gradient(to left, rgba(0,0,0,.9), rgba(0,0,0,.0));
+    padding: 2rem;
+    right: 0;
+}
+.sliders .slide-right:hover {
+    background: linear-gradient(to left, rgba(0,0,0,.9), rgba(0,0,0,.3));
+}
